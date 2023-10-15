@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class PangramChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a sentence to check if it's a pangram:");
+        String input = scanner.nextLine();
+        scanner.close();
+
+        boolean isPangram = checkPangram(input);
+        if (isPangram) {
+            System.out.println("The input is a pangram.");
+        } else {
+            System.out.println("The input is not a pangram.");
+        }
+    }
+
+    public static boolean checkPangram(String s) {
+        s = s.toLowerCase();
+        for (char c = 'a'; c <= 'z'; c++) {
+            if (s.indexOf(c) == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
